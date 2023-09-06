@@ -13,7 +13,9 @@ class PostForm(forms.ModelForm):
                 'class': 'form-control', 'placeholder': 'Enter Title'
             }),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
+            'author': forms.TextInput(attrs={'class': 'form-control',
+                                             'value': '', 'id':
+                                             'elder', 'type': 'hidden'}),
 
             'category':
                 forms.Select(
@@ -21,7 +23,6 @@ class PostForm(forms.ModelForm):
                                                                ),
                     attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
-            # 'snippet': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
 
@@ -35,10 +36,8 @@ class EditForm(forms.ModelForm):
                 'class': 'form-control', 'placeholder': 'Enter Title'
             }),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'author': forms.Select(attrs={'class': 'form-control'}),
             'category': forms.TextInput(attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
-            # 'snippet': forms.Textarea(attrs={'class': 'form-control'}),
 
         }
 
