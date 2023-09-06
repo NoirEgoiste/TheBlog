@@ -1,4 +1,4 @@
-from django.contrib.auth.views import PasswordChangeView, PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView, LoginView
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
@@ -22,14 +22,10 @@ class CreateProfilePageView(CreateView):
 
 class EditProfilePageView(UpdateView):
     model = Profile
+    form_class = ProfilePageForm
     template_name = 'registration/edit_profile_page.html'
 
-    fields = [
-        'bio', 'profile_pic', 'website_url', 'telegram',
-        'facebook_url', 'twitter_url', 'instagram_url', 'vkontakte'
-    ]
-
-    success_url = reverse_lazy('show_profile_page')
+    success_url = reverse_lazy('home')
 
 
 class ShowProfilePageView(DetailView):

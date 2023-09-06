@@ -34,9 +34,8 @@
 
         <form action="{% url 'like_post' post.pk %}"  method="post">
             {% csrf_token %}
-            {{ total_likes }}
-            {% if liked %}
-
+            {{ total_likes }} Likes
+            {% if liked or un_liked %}
                  <button type="submit" name="post_id" value="{{ post.id }}"
                         class="btn btn-danger btn-sm">Unlike</button>
 
@@ -46,6 +45,7 @@
                         class="btn btn-primary btn-sm">Like</button>
 
             {% endif %}
+
         </form>
     {% else %}
 
@@ -57,7 +57,7 @@
                 </button>
             </a>
         </small>
-        {{ total_likes }} Likes
+
     {% endif %}
     <br>
         <div class="card mb-3">
@@ -71,7 +71,7 @@
                             {{ post.author.first_name }}
                             {{ post.author.last_name }}
 
-                            <a href="{% url 'show_profile_page'  post.author.profile.id%}">
+                            <a href="{% url 'show-profile-page'  post.author.profile.id%}">
                                 <button type="button" class="btn btn-primary"
                                         style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .55rem;">
                                         Profile
@@ -114,6 +114,8 @@
         <hr>
         <h5>Comments</h5>
         <hr>
+
+
         {% if not post.comments.all %}
             No comments Yet <a href="{% url 'add_comment' post.pk %}">Add One</a>
         {% else %}

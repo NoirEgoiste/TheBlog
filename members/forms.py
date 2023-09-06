@@ -13,7 +13,7 @@ class ProfilePageForm(forms.ModelForm):
         widgets = {
             'bio': forms.Textarea(attrs={'class': 'form-control'}),
             'profile_pic': forms.FileInput(attrs={'class': 'form-control'}),
-            'website_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'website_url': forms.URLInput(attrs={'class': 'form-control'}),
             'telegram': forms.TextInput(attrs={'class': 'form-control'}),
             'facebook_url': forms.TextInput(attrs={'class': 'form-control'}),
             'twitter_url': forms.TextInput(attrs={'class': 'form-control'}),

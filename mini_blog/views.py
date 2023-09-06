@@ -6,27 +6,6 @@ from django.urls import reverse_lazy, reverse
 from .models import Post, Category, Comment
 from .forms import PostForm, CommentForm
 
-'''
-Note: Functions will be classes in the future
-Note: LIKE UNLIKE stop working ???
-
-'''
-
-
-def LikeView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
-    post.likes.add(request.user)
-    liked = False
-    if post.likes.filter(id=request.user.id).exists():
-        post.likes.remove(request.user)
-        liked = False
-    else:
-        post.likes.add(request.user)
-        liked = True
-
-    return HttpResponseRedirect(reverse('article-detail',
-                                        args=[str(pk)]))
-
 
 class HomeView(ListView):
     model = Post
@@ -38,18 +17,6 @@ class HomeView(ListView):
         context = super(HomeView, self).get_context_data(*args, **kwargs)
         context['cat_menu'] = cat_menu
         return context
-
-
-def CategoryListView(request):
-    cat_menu_list = Category.objects.all()
-    return render(request, 'categories_list.html',
-                  {'cat_menu_list': cat_menu_list})
-
-
-def CategoryView(request, cats):
-    category_posts = Post.objects.filter(category=cats)
-    return render(request, 'categories.html',
-                  {'cats': cats, 'category_posts': category_posts})
 
 
 class ArticleDetailView(DetailView):
@@ -108,3 +75,30 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+
+def category_list_view(request):
+    cat_menu_list = Category.objects.all()
+    return render(request, 'categories_list.html',
+                  {'cat_menu_list': cat_menu_list})
+
+
+def category_view(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'categories.html',
+                  {'cats': cats, 'category_posts': category_posts})
+
+
+def like_view(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user.id)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
+
+    return HttpResponseRedirect(reverse('article-detail',
+                                        args=[str(pk)]))
+
