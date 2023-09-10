@@ -20,13 +20,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n^33c9n_5+@%hgas)@x8$tq%((!)ou)4g*(!7kqrze=p&m#(my'
+# SECRET_KEY = 'django-insecure-n^33c9n_5+@%hgas)@x8$tq%((!)ou)4g*(!7kqrze=p&m#(my'
+#
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
+#
+# ALLOWED_HOSTS = []
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-n^33c9n_5+@%hgas)@x8$tq%((!)ou)4g*(!7kqrze=p&m#(my")
 
+DEBUG = os.environ.get("DEBUG", True)
+
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(" ")
 
 # Application definition
 
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'members',
     'mini_blog',
     'ckeditor',
@@ -79,25 +86,27 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # SQlite
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
-# if not DEBUG:
-#     # PostgreSQL
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': os.getenv('POSTGRES_DB'),
-#             'USER': os.getenv('POSTGRES_USER'),
-#             'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-#             'HOST': os.getenv('DB_HOST'),
-#             'PORT': 5432,
-#         }
-#     }
+
+# PostgreSQL
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.postgresql'),
+            'NAME': os.environ.get('POSTGRES_DB', 'postgres'),
+            'USER': os.environ.get('POSTGRES_USER', 'postgres'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'postgres'),
+            'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+            'PORT': os.environ.get('DB_PORT', '5432'),
+        }
+    }
 
 
 # Password validation
@@ -138,10 +147,10 @@ STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, '../static')
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 #STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 # Default primary key field type
@@ -151,3 +160,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
+
+
+#CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_HOSTS", "http://127.0.0.1:8000").split(" ")
