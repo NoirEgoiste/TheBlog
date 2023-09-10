@@ -3,8 +3,9 @@ from django.http import HttpResponseRedirect
 from django.views.generic import (ListView, DetailView, CreateView,
                                   UpdateView, DeleteView)
 from django.urls import reverse_lazy, reverse
-from .models import Post, Category, Comment
-from .forms import PostForm, CommentForm
+
+from .models import Post, Comment
+from .forms import PostForm, CommentForm, Category
 
 
 class HomeView(ListView):
@@ -101,4 +102,3 @@ def like_view(request, pk):
 
     return HttpResponseRedirect(reverse('article-detail',
                                         args=[str(pk)]))
-

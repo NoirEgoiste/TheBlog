@@ -1,4 +1,4 @@
-from django.contrib.auth.views import PasswordChangeView, LoginView
+from django.contrib.auth.views import PasswordChangeView
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
