@@ -21,20 +21,23 @@ Postgres(Для докер контейнера)<br>
 
 
 <h3>Старт</h3>
-1. Вариант использование SQLite.
-<ul>
-  <li>клонируйте проект и создайте виртуальное окружение</li>
-  <li>pip install -r requirements.txt</li>
-  <li>в файле env.dev установить значение DEBUG на True</li>
-</ul>
-  Выполните миграции:
-    - в bash python manage.py makemigrations --noinput && python manage.py migrate или в powershell python manage.py makemigrations --noinput ; python manage.py migrate
-  Создайте суперпользователя:
-    - python manage.py createsuperuser
-Запустите сервер:
-    - python manage.py runserver
-Сервер будет доступен по адресу : http://127.0.0.1:8000/
-</ul>
+
+<ul type="1">Вариант использование SQLite.
+    <ul>
+      <li>клонируйте проект и создайте виртуальное окружение</li>
+      <li>pip install -r requirements.txt</li>
+      <li>в файле env.dev установить значение DEBUG на True</li>
+    </ul>
+    <ul>Выполните миграции:
+        <li>в bash python manage.py makemigrations --noinput && python manage.py migrate</li>
+        <li>в powershell python manage.py makemigrations --noinput ; python manage.py migrate</li>
+    </ul>
+  <ul>Создайте суперпользователя:</ul>
+    <li>python manage.py createsuperuser</li>
+    <ul>Запустите сервер:</ul>
+    <li>python manage.py runserver</li>
+    <li>Сервер будет доступен по адресу : http://127.0.0.1:8000/</li>
+ 
 2. Вариант использование Postgres & Docker
   - клонируйте проект.
   - в консоле введите команду docker-compose up -d --build
@@ -42,3 +45,4 @@ Postgres(Для докер контейнера)<br>
   - docker exec -it  blog python manage.py createsuperuser
 
 Сервер будет доступен по адресу : http://127.0.0.1:8000/
+</ul>
