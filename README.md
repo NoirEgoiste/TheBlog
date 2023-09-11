@@ -1,6 +1,6 @@
 <h1>TheBlog - Новостной сайт.</h1>
 <br>
-![The Blog](static/mini_blog/images/blog_pic.png)
+![The Blog](./static/mini_blog/images/blog_pic.png)
 <br>
 
 <h1>инструменты:</h1>
