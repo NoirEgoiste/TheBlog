@@ -40,9 +40,11 @@ Postgres(Для докер контейнера)<br>
         <li>в bash python manage.py makemigrations --noinput && python manage.py migrate</li>
         <li>в powershell python manage.py makemigrations --noinput ; python manage.py migrate</li>
     </ul>
-  <ul>Создайте суперпользователя:</ul>
-    <li>python manage.py createsuperuser</li>
-    <ul>Запустите сервер:</ul>
-    <li>python manage.py runserver</li>
-    <li>Сервер будет доступен по адресу : http://127.0.0.1:8000/</li>
+      <ul>
+      Создайте суперпользователя:
+        <li>python manage.py createsuperuser</li>
+        <ul>Запустите сервер:</ul>
+        <li>python manage.py runserver</li>
+        <li>Сервер будет доступен по адресу : http://127.0.0.1:8000/</li>
+      </ul>
 </ul>
