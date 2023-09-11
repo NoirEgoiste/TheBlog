@@ -20,7 +20,7 @@ Postgres(Для докер контейнера)<br>
 
 <h3>Старт</h3>
 
-<ul type="1">Вариант использование SQLite.
+<ul type="a">Вариант использование SQLite.
     <ul>
       <li>клонируйте проект и создайте виртуальное окружение</li>
       <li>pip install -r requirements.txt</li>
@@ -35,14 +35,13 @@ Postgres(Для докер контейнера)<br>
     <ul>Запустите сервер:</ul>
     <li>python manage.py runserver</li>
     <li>Сервер будет доступен по адресу : http://127.0.0.1:8000/</li>
-</ul>
 
-<ul type="2">Вариант использование Postgres & Docker
+
+<ul>Вариант использование Postgres & Docker
       <li>клонируйте проект.</li>
       <li>в консоле введите команду docker-compose up -d --build</li>
-      <ul>Создайте суперпользователя.
+      <ul>Создайте суперпользователя:
         <li>docker exec -it  blog python manage.py createsuperuser</li>
       </ul>
       <li>Сервер будет доступен по адресу : http://127.0.0.1:8000/</li>
-
 </ul>
