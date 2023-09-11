@@ -51,6 +51,11 @@ Postgres(Для докер контейнера)<br>
       </ul>
 </ul>
 <br>
+<h1>Страница поста</h1>
 <img src="https://github.com/NoirEgoiste/TheBlog/blob/main/static/mini_blog/images/post_pic.png">
 <br>
 
+<br>
+<h1>Автор поста</h1>
+<img src="https://github.com/NoirEgoiste/TheBlog/blob/main/static/mini_blog/images/profile_author_pic.png">
+<br>
