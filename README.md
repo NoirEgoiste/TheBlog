@@ -30,7 +30,7 @@ Postgres(Для докер контейнера)<br>
 
 <br>
 
-<ul type="a">Вариант использование SQLite.
+<ul type="a"><h3>Вариант использование SQLite.</h3>
     <ul>
       <li>клонируйте проект и создайте виртуальное окружение</li>
       <li>pip install -r requirements.txt</li>
