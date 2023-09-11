@@ -3,7 +3,6 @@
 <br>
 
 <h1>инструменты:</h1>
-<hr>
 python >= 3.11<br>
 Django >= 4.2.4<br>
 Docker<br>
