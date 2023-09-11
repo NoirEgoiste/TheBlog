@@ -1,16 +1,18 @@
 from django import forms
 from .models import Post, Comment, Category
 
+"""Your custom post categories"""
 
-choices = [('coding', 'coding'), ('sport', 'sport'), ('other', 'other'),]
-
-#choices = Category.objects.all().values_list('name', 'name')
+choices = [('coding', 'coding'), ('sport', 'sport'),
+           ('Information Security', 'Information Security'),
+           ('biotechnology', 'biotechnology'),
+           ('AI', 'AI'), ('other', 'other')]
 
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'title_tag', 'author',
+        fields = ('title', 'title_tag',
                   'category', 'body', 'header_image')
 
         widgets = {
@@ -18,10 +20,7 @@ class PostForm(forms.ModelForm):
                 'class': 'form-control', 'placeholder': 'Enter Title'
             }),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control',
-                                          'value': '', 'id':
-                                              'elder', 'type': 'hidden'}),
-
+            'author': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(
                 choices=choices,
                 attrs={'class': 'form-control'}),
