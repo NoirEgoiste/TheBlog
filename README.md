@@ -35,9 +35,11 @@ Postgres(Для докер контейнера)<br>
     <ul>Запустите сервер:</ul>
     <li>python manage.py runserver</li>
     <li>Сервер будет доступен по адресу : http://127.0.0.1:8000/</li>
+</ul>
+<br>
 
-
-<ul>Вариант использование Postgres & Docker
+<ul>
+    Вариант использование Postgres & Docker
       <li>клонируйте проект.</li>
       <li>в консоле введите команду docker-compose up -d --build</li>
       <ul>Создайте суперпользователя:
