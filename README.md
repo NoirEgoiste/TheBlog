@@ -20,7 +20,6 @@ Postgres(Для докер контейнера)<br>
 
 <h3>Старт</h3>
 <h3>Вариант использование Postgres & Docker</h3> 
-<br>
 <ul>
      <li>клонируйте проект.</li>
      <li>в консоле введите команду docker-compose up -d --build</li>
