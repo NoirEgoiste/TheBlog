@@ -21,11 +21,12 @@ Postgres(Для докер контейнера)<br>
 <h3>Старт</h3>
 <h3>Вариант использование Postgres & Docker</h3> 
 <br>
-1. клонируйте проект.
-1. в консоле введите команду docker-compose up -d --build
-1. docker exec -it  blog python manage.py createsuperuser
-1. Сервер будет доступен по адресу : http://127.0.0.1:8000/
-
+<ul>
+     <li>клонируйте проект.</li>
+     <li>в консоле введите команду docker-compose up -d --build</li>
+     <li>docker exec -it  blog python manage.py createsuperuser</li>
+     <li>Сервер будет доступен по адресу : http://127.0.0.1:8000/</li>
+</ul>
 <h3>Вариант использование SQLite.</h3>
 
 * клонируйте проект и создайте виртуальное окружение
