@@ -20,10 +20,11 @@ Postgres(Для докер контейнера)<br>
 
 <h3>Старт</h3>
 <h3>Вариант использование Postgres & Docker</h3> 
-* клонируйте проект.
-в консоле введите команду docker-compose up -d --build
-docker exec -it  blog python manage.py createsuperuser
-Сервер будет доступен по адресу : http://127.0.0.1:8000/
+<br>
+1. клонируйте проект.
+1. в консоле введите команду docker-compose up -d --build
+1. docker exec -it  blog python manage.py createsuperuser
+1. Сервер будет доступен по адресу : http://127.0.0.1:8000/
 
 <h3>Вариант использование SQLite.</h3>
 
@@ -38,9 +39,6 @@ docker exec -it  blog python manage.py createsuperuser
     - Запустите сервер:
     - python manage.py runserver
     - Сервер будет доступен по адресу : http://127.0.0.1:8000/
-      
-
-</ul>
 <br>
 <h1>Страница поста</h1>
 <img src="https://github.com/NoirEgoiste/TheBlog/blob/main/static/mini_blog/images/post_pic.png">
