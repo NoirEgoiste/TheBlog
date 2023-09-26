@@ -36,3 +36,4 @@ make.bat
 
 doc-dev
 .vscode/*
+.gitignore
